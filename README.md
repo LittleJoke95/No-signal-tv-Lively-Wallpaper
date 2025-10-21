@@ -3,4 +3,4 @@
 
 | Name               | Preview                                                       | Description                                           |
 | ------------------ | ------------------------------------------------------------- | ----------------------------------------------------- |
-| No Signal TV       | <img src="/src/Music TV/dxqnpxj4.pi2.gif" width="300"/>       |TV displaying static effect with the message “NO SIGNAL” |
+| No Signal TV       | <img src="/src/No Signal TV/dxqnpxj4.pi2.gif" width="300"/>       |TV displaying static effect with the message “NO SIGNAL” |
