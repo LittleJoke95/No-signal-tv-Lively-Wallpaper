@@ -52,7 +52,7 @@
     <script type="module">
       import * as THREE from "three";
 
-      import Stats from "three/addons/libs/stats.module.js";
+      
 
       import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
@@ -66,7 +66,6 @@
 
       let camera, scene, renderer, composer;
       let canvasTextureArtist, canvasTextureVisualizer;
-      //let stats;
 
       // isSignalNotFound video using threejs texture
       let htmlVideoScreenObject;
@@ -95,8 +94,7 @@
         composer = new EffectComposer(renderer);
         window.addEventListener("resize", onWindowResize);
 
-        //stats = new Stats();
-        //container.appendChild(stats.dom);
+       
 
         camera = new THREE.PerspectiveCamera(52.5, window.innerWidth / window.innerHeight, 0.25, 1000);
         cameraContainer = new THREE.Object3D();
@@ -250,15 +248,15 @@
         }
 
         composer.render();
-        //stats.update();
+
       }
 
       init();
       render();
     </script>
-    <script src="js/color-thief.umd.js"></script>
+
     <script type="text/javascript">
-      const colorThief = new ColorThief();
+      
       let ctxArtist = canvasArtist.getContext("2d");
 
       function livelyPropertyListener(name, val) {
@@ -287,8 +285,18 @@
       let songTitle = "",
         songArtist = "",
         albumColor = [225, 225, 225];
+        isSignalNotFound = true; // forza modalit "no signal" permanente
+
 
       function livelyCurrentTrack(data) {
+        // Forza modalit "no signal" permanente
+        isSignalNotFound = true;
+        htmlVideo.play();
+        document.body.style.setProperty("--gradientColor1", "#2d2d2d");
+}
+
+
+      /* function livelyCurrentTrack(data) {
         let obj = JSON.parse(data);
         if (obj == null) {
           isSignalNotFound = true;
@@ -311,7 +319,7 @@
             albumImg.src = "data:image/png;base64, " + obj.Thumbnail;
           }
         }
-      }
+      } */
 
       let albumImg = new Image();
       albumImg.onload = () => {
@@ -355,7 +363,14 @@
         //livelyAudioListener([0]);
       };
 
+
+
       function livelyAudioListener(audioArray) {
+        // Disattiva completamente la risposta audio
+        isSignalNotFound = true;
+}
+
+      /*function livelyAudioListener(audioArray) {
         if (isSignalNotFound) return;
 
         maxVal = 1;
@@ -385,7 +400,7 @@
 
         ctxVisualizer.fillStyle = gradient;
         ctxVisualizer.fill();
-      }
+      }*/
     </script>
   </body>
 </html>
